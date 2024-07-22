@@ -1,0 +1,38 @@
+﻿@page "{id:int}"
+@model Car_rental.Pages.Admin.EditCarModel
+@{
+    ViewData["Title"] = "Edit Car";
+}
+
+<h2>Edit Car</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label>Make</label>
+        <input asp-for="Car.Make" />
+        <span asp-validation-for="Car.Make" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Model</label>
+        <input asp-for="Car.Model" />
+        <span asp-validation-for="Car.Model" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Year</label>
+        <input asp-for="Car.Year" />
+        <span asp-validation-for="Car.Year" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Price Per Day</label>
+        <input asp-for="Car.PricePerDay" />
+        <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Location</label>
+        <input asp-for="Car.Location" />
+        <span asp-validation-for="Car.Location" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Car.CarId" /> 
+    <button type="submit">Save Changes</button>
+</form>

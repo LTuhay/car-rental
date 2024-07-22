@@ -6,6 +6,7 @@ namespace Car_rental.Models.Services
     {
         Task<IEnumerable<Reservation>> GetAllReservationsAsync();
         Task<Reservation> GetReservationByIdAsync(int id);
+        Task<IEnumerable<Reservation>> GetReservationsByUserIdAsync(int id);
         Task AddReservationAsync(Reservation reservation);
         Task UpdateReservationAsync(Reservation reservation);
         Task DeleteReservationAsync(int id);

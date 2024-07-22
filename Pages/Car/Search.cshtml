@@ -1,0 +1,43 @@
+﻿@page
+@model Car_rental.Pages.Cars.SearchModel
+@{
+    ViewData["Title"] = "Search Cars";
+}
+
+<h2>Available Cars</h2>
+
+
+@if (Model.Cars != null && Model.Cars.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Price Per Day</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model.Cars)
+            {
+                <tr>
+                    <td>@car.Make</td>
+                    <td>@car.Model</td>
+                    <td>@car.Year</td>
+                    <td>@car.PricePerDay</td>
+                    <td>@car.Location</td>
+                    <td>
+                        <a asp-page="/Reservations/Reserve" asp-route-carId="@car.CarId" asp-route-startDate="@Model.StartDate.ToString("yyyy-MM-dd")" asp-route-endDate="@Model.EndDate.ToString("yyyy-MM-dd")">Reserve</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.Cars != null)
+{
+    <p>No cars available for the selected dates.</p>
+}

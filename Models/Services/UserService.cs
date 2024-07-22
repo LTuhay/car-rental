@@ -1,5 +1,6 @@
 ﻿using Car_rental.Models.Domain;
 using Car_rental.Models.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Car_rental.Models.Services
 {
@@ -41,6 +42,23 @@ namespace Car_rental.Models.Services
         {
             await _userRepository.DeleteAsync(id);
         }
+
+        public async Task<User> AuthenticateAsync(string email, string password)
+        {
+            var user = await _userRepository.GetByEmailAndPasswordAsync(email, password);
+            return user;
+        }
+
+        public async Task RegisterAsync(User user)
+        {
+            await _userRepository.AddAsync(user);
+        }
+
+        public async Task<bool> ExistsEmailAsync(string email)
+        {
+            return await _userRepository.ExistsEmailAsync(email);
+        }
+
     }
 
 }

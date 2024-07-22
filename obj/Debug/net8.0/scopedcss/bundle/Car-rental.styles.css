@@ -1,46 +1,46 @@
-/* _content/Car-rental/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* _content/Car-rental/Pages/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand[b-91suzbccxo] {
+a.navbar-brand[b-uc9i2lrcut] {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-a[b-91suzbccxo] {
+a[b-uc9i2lrcut] {
   color: #0077cc;
 }
 
-.btn-primary[b-91suzbccxo] {
+.btn-primary[b-uc9i2lrcut] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active[b-91suzbccxo], .nav-pills .show > .nav-link[b-91suzbccxo] {
+.nav-pills .nav-link.active[b-uc9i2lrcut], .nav-pills .show > .nav-link[b-uc9i2lrcut] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.border-top[b-91suzbccxo] {
+.border-top[b-uc9i2lrcut] {
   border-top: 1px solid #e5e5e5;
 }
-.border-bottom[b-91suzbccxo] {
+.border-bottom[b-uc9i2lrcut] {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.box-shadow[b-91suzbccxo] {
+.box-shadow[b-uc9i2lrcut] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy[b-91suzbccxo] {
+button.accept-policy[b-uc9i2lrcut] {
   font-size: 1rem;
   line-height: inherit;
 }
 
-.footer[b-91suzbccxo] {
+.footer[b-uc9i2lrcut] {
   position: absolute;
   bottom: 0;
   width: 100%;

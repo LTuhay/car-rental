@@ -36,5 +36,10 @@ namespace Car_rental.Models.Services
         {
             await _carRepository.DeleteAsync(id);
         }
+
+        public async Task<IEnumerable<Car>> GetAvailableCarsAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _carRepository.GetAvailableCarsAsync(startDate, endDate);
+        }
     }
 }

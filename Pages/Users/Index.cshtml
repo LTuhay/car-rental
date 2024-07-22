@@ -1,0 +1,63 @@
+﻿@page
+@model Car_rental.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "User Home";
+}
+
+<h2>Welcome, @Model.User.FirstName</h2>
+
+<p>
+    <a asp-page="/Users/ReservationHistory">View Reservation History</a>
+</p>
+<p>
+    <a asp-page="/Users/EditProfile">Edit Your Profile</a>
+</p>
+
+<h2>Search Available Cars</h2>
+
+<form id="searchForm" asp-page="/Car/Search" method="get">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required />
+        <span id="startDateError" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required />
+        <span id="endDateError" class="text-danger"></span>
+    </div>
+    <button type="submit">Search</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            var startDate = new Date(document.getElementById('startDate').value);
+            var endDate = new Date(document.getElementById('endDate').value);
+            var startDateError = document.getElementById('startDateError');
+            var endDateError = document.getElementById('endDateError');
+            var today = new Date();
+            today.setHours(0, 0, 0, 0); 
+
+            startDateError.textContent = '';
+            endDateError.textContent = '';
+
+            var valid = true;
+
+            if (startDate < today) {
+                startDateError.textContent = 'Start date must be today or later.';
+                valid = false;
+            }
+
+            if (endDate <= startDate) {
+                endDateError.textContent = 'End date must be after the start date.';
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}

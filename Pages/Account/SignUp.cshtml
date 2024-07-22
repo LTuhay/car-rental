@@ -1,0 +1,91 @@
+﻿@page
+@model Car_rental.Pages.Account.SignUpModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<h2>Sign Up</h2>
+<form id="signUpForm" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label asp-for="User.FirstName"></label>
+        <input asp-for="User.FirstName" />
+        <span asp-validation-for="User.FirstName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.LastName"></label>
+        <input asp-for="User.LastName" />
+        <span asp-validation-for="User.LastName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.Email"></label>
+        <input asp-for="User.Email" />
+        <span asp-validation-for="User.Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.Password"></label>
+        <input asp-for="User.Password" type="password" id="password" />
+        <span asp-validation-for="User.Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" onkeyup="validate_password()" />
+        <span id="confirmPasswordError" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.PhoneNumber"></label>
+        <input asp-for="User.PhoneNumber" />
+        <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.DateOfBirth"></label>
+        <input asp-for="User.DateOfBirth" type="date" />
+    </div>
+    <div>
+        <label asp-for="User.AddressLine1"></label>
+        <input asp-for="User.AddressLine1" />
+        <span asp-validation-for="User.AddressLine1" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.AddressLine2"></label>
+        <input asp-for="User.AddressLine2" />
+    </div>
+    <div>
+        <label asp-for="User.City"></label>
+        <input asp-for="User.City" />
+        <span asp-validation-for="User.City" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.Country"></label>
+        <input asp-for="User.Country" />
+        <span asp-validation-for="User.Country" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="User.DriversLicenseNumber"></label>
+        <input asp-for="User.DriversLicenseNumber" />
+        <span asp-validation-for="User.DriversLicenseNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" id="create">Sign Up</button>
+</form>
+
+@section Scripts {
+    <script>
+        function validate_password() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var errorElement = document.getElementById('confirmPasswordError');
+            var submitButton = document.getElementById('create');
+
+            if (password !== confirmPassword) {
+                errorElement.textContent = 'Passwords do not match.';
+                errorElement.style.color = 'red';
+                submitButton.disabled = true;
+                submitButton.style.opacity = 0.4;
+            } else {
+                errorElement.textContent = ''; 
+                submitButton.disabled = false;
+                submitButton.style.opacity = 1;
+            }
+        }
+    </script>
+}

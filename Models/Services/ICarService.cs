@@ -9,5 +9,6 @@ namespace Car_rental.Models.Services
         Task AddCarAsync(Car car);
         Task UpdateCarAsync(Car car);
         Task DeleteCarAsync(int id);
+        Task<IEnumerable<Car>> GetAvailableCarsAsync(DateTime startDate, DateTime endDate);
     }
 }

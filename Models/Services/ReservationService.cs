@@ -36,5 +36,10 @@ namespace Car_rental.Models.Services
         {
             await _reservationRepository.DeleteAsync(id);
         }
+
+        public async Task<IEnumerable<Reservation>> GetReservationsByUserIdAsync(int id)
+        {
+            return await _reservationRepository.GetReservationByUserIdAsync(id);
+        }
     }
 }

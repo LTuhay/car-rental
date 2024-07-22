@@ -1,0 +1,39 @@
+﻿@page
+@model Car_rental.Pages.Admin.ManageReservationsModel
+@{
+    ViewData["Title"] = "Manage Reservations";
+}
+
+<h2>Manage Reservations</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Reservation ID</th>
+            <th>User</th>
+            <th>Car</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Total Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.Reservations)
+        {
+            <tr>
+                <td>@reservation.ReservationId</td>
+                <td>@reservation.User.FirstName @reservation.User.LastName</td>
+                <td>@reservation.Car.Make @reservation.Car.Model</td>
+                <td>@reservation.StartDate.ToShortDateString()</td>
+                <td>@reservation.EndDate.ToShortDateString()</td>
+                <td>$@reservation.TotalPrice</td>
+                <td>
+                    <a asp-page="/Admin/EditReservation" asp-route-id="@reservation.ReservationId">Edit</a> |
+                    <a asp-page="/Admin/DeleteReservation" asp-route-id="@reservation.ReservationId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
