@@ -1,0 +1,38 @@
+﻿@page
+@model Car_rental.Pages.Users.ReservationHistoryModel
+@{
+    ViewData["Title"] = "Reservation History";
+}
+
+<h2>Your Reservation History</h2>
+
+@if (Model.Reservations.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Car Make</th>
+                <th>Car Model</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model.Reservations)
+            {
+                <tr>
+                    <td>@reservation.Car.Make</td>
+                    <td>@reservation.Car.Model</td>
+                    <td>@reservation.StartDate.ToShortDateString()</td>
+                    <td>@reservation.EndDate.ToShortDateString()</td>
+                    <td>@reservation.TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You have no reservations.</p>
+}

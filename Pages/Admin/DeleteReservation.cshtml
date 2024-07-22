@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model Car_rental.Pages.Admin.DeleteReservationModel
+@{
+    ViewData["Title"] = "Delete Reservation";
+}
+
+<h2>Delete Reservation</h2>
+
+<p>Are you sure you want to delete the reservation for @Model.Reservation.Car.Make @Model.Reservation.Car.Model?</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Reservation.ReservationId" />
+    <button type="submit">Delete</button>
+    <a asp-page="/Admin/ManageReservations">Cancel</a>
+</form>

@@ -1,0 +1,17 @@
+﻿@page
+@model Car_rental.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+<p>Sorry, an error occurred while processing your request.</p>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<a asp-page="/Index" class="btn btn-primary">Back to Home</a>

@@ -1,0 +1,14 @@
+﻿@page
+@model Car_rental.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+<p>Welcome, Admin. Please select an option below:</p>
+
+<ul>
+    <li><a asp-page="/Admin/ManageCars">Manage Cars</a></li>
+    <li><a asp-page="/Admin/ManageReservations">Manage Reservations</a></li>
+    <li><a asp-page="/Admin/ManageUsers">Manage Users</a></li>
+</ul>

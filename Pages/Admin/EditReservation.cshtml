@@ -1,0 +1,37 @@
+﻿@page "{id:int}"
+@model Car_rental.Pages.Admin.EditReservationModel
+@{
+    ViewData["Title"] = "Edit Reservation";
+}
+
+<h2>Edit Reservation</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <input type="hidden" asp-for="Reservation.UserId" />
+    </div>
+    <div>
+        <label>User Name</label>
+        <p>@Model.Reservation.User.FirstName @Model.Reservation.User.LastName</p>
+    </div>
+    <div>
+        <input type="hidden" asp-for="Reservation.CarId" />
+    </div>
+    <div>
+        <label>Car Make</label>
+        <p>@Model.Reservation.Car.Make</p>
+    </div>
+    <div>
+        <label>Start Date</label>
+        <input asp-for="Reservation.StartDate" type="date" />
+        <span asp-validation-for="Reservation.StartDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label>End Date</label>
+        <input asp-for="Reservation.EndDate" type="date" />
+        <span asp-validation-for="Reservation.EndDate" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Reservation.ReservationId" />
+    <button type="submit">Save Changes</button>
+</form>

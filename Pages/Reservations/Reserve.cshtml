@@ -1,0 +1,36 @@
+﻿@page "{CarId:int?}"
+@model Car_rental.Pages.Reservations.ReserveModel
+@{
+    ViewData["Title"] = "Reserve";
+}
+
+<h2>Reserve a Car</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="CarId" />
+    <input type="hidden" asp-for="StartDate" />
+    <input type="hidden" asp-for="EndDate" />
+
+    <div>
+        <label>Car:</label>
+        <span>@Model.Car.Make @Model.Car.Model (@Model.Car.Year)</span>
+    </div>
+    <div>
+        <label>Location:</label>
+        <span>@Model.Car.Location</span>
+    </div>
+    <div>
+        <label>Price Per Day:</label>
+        <span>@Model.Car.PricePerDay</span>
+    </div>
+    <div>
+        <label>Start Date:</label>
+        <span>@Model.StartDate.ToShortDateString()</span>
+    </div>
+    <div>
+        <label>End Date:</label>
+        <span>@Model.EndDate.ToShortDateString()</span>
+    </div>
+    <button type="submit">Reserve</button>
+</form>

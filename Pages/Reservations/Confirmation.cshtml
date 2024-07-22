@@ -1,0 +1,19 @@
+﻿@page "{reservationId:int}"
+@model Car_rental.Pages.Reservations.ConfirmationModel
+@{
+    ViewData["Title"] = "Reservation Confirmation";
+}
+
+<h2>Reservation Confirmed</h2>
+<div>
+    <p>Your reservation details:</p>
+    <ul>
+        <li><strong>Car:</strong> @Model.Reservation.Car.Make @Model.Reservation.Car.Model (@Model.Reservation.Car.Year)</li>
+        <li><strong>Location:</strong> @Model.Reservation.Car.Location</li>
+        <li><strong>Start Date:</strong> @Model.Reservation.StartDate.ToShortDateString()</li>
+        <li><strong>End Date:</strong> @Model.Reservation.EndDate.ToShortDateString()</li>
+        <li><strong>Total Price:</strong> $@Model.Reservation.TotalPrice</li>
+    </ul>
+</div>
+
+<a asp-page="/Users/Index" class="btn btn-primary">Back to Home</a>

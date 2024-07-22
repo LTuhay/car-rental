@@ -1,0 +1,15 @@
+﻿@page
+@model Car_rental.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>Welcome to Car Rental</h2>
+<p>
+    Please sign in or sign up to continue.
+</p>
+
+<form method="post">
+    <button type="submit" name="action" value="SignIn">Sign In</button>
+    <button type="submit" name="action" value="SignUp">Sign Up</button>
+</form>
